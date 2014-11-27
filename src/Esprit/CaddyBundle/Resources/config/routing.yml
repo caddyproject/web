@@ -1,0 +1,6 @@
+esprit_caddy_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: EspritCaddyBundle:Default:index }
+esprit_caddy_homepage:
+    path:     /affichage
+    defaults: { _controller: EspritCaddyBundle:Default:affichage }

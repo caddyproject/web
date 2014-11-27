@@ -1,0 +1,4 @@
+esprit_caddy:
+    resource: "@EspritCaddyBundle/Resources/config/routing.yml"
+    prefix:   /Caddy
+
