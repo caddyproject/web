@@ -1,4 +1,11 @@
+esprit_user:
+    resource: "@EspritUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 esprit_caddy:
     resource: "@EspritCaddyBundle/Resources/config/routing.yml"
-    prefix:   /Caddy
+    prefix:  / 
+   
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 

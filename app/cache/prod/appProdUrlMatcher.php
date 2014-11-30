@@ -28,8 +28,12 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
         $request = $this->request;
 
         // esprit_caddy_homepage
-        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'esprit_caddy_homepage')), array (  '_controller' => 'Esprit\\CaddyBundle\\Controller\\DefaultController::indexAction',));
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'esprit_caddy_homepage');
+            }
+
+            return array (  '_controller' => 'Esprit\\CaddyBundle\\Controller\\DefaultController::indexAction',  '_route' => 'esprit_caddy_homepage',);
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
